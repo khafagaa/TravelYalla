@@ -88,42 +88,11 @@ const Details = ({route, navigation}) => {
           </View>
         </View>
       </View>
-      <ScrollView
-        style={{
-          marginTop: 10,
-          flex: 1,
-          backgroundColor: 'white',
-          width: width - 10,
-        }}>
+      <ScrollView style={styles.scrContainer}>
         {products.items?.map((val: any, index: number) => (
-          <View
-            key={index}
-            style={{
-              flexDirection: 'row',
-              backgroundColor: 'white',
-              justifyContent: 'space-evenly',
-              margin: 10,
-              borderRadius: 20,
-              height: 150,
-              elevation: 15,
-              shadowColor: '#757575',
-              flex: 1,
-            }}>
-            <View
-              style={{
-                marginLeft: 10,
-                flexDirection: 'column',
-                marginTop: 30,
-                flexWrap: 'wrap',
-              }}>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: '400',
-                  color: 'black',
-                }}>
-                {val.name}
-              </Text>
+          <View key={index} style={styles.itemView}>
+            <View style={styles.txt1}>
+              <Text style={styles.txt2}>{val.name}</Text>
               <Text
                 style={{
                   fontSize: 11,
@@ -132,23 +101,10 @@ const Details = ({route, navigation}) => {
                 }}>
                 {val.description}{' '}
               </Text>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: '900',
-                  color: 'green',
-                }}>
-                {val.price}
-              </Text>
+              <Text style={styles.txt3}>{val.price}</Text>
             </View>
             <Image
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: '#fff',
-                borderRadius: 15,
-                alignSelf: 'center',
-              }}
+              style={styles.proimg}
               resizeMode={'stretch'}
               source={{
                 uri: 'https://i.pinimg.com/236x/92/a6/61/92a66178b3d006d63422d5afc9dc8e18--margherita-recipe-pizza-margherita.jpg',
@@ -210,6 +166,46 @@ const styles = StyleSheet.create({
   menulist: {
     flex: 1,
     marginTop: 50,
+  },
+  itemView: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    justifyContent: 'space-evenly',
+    margin: 10,
+    borderRadius: 20,
+    height: 150,
+    elevation: 15,
+    shadowColor: '#757575',
+    flex: 1,
+  },
+  txt1: {
+    marginLeft: 10,
+    flexDirection: 'column',
+    marginTop: 30,
+    flexWrap: 'wrap',
+  },
+  txt2: {
+    fontSize: 20,
+    fontWeight: '400',
+    color: 'black',
+  },
+  txt3: {
+    fontSize: 20,
+    fontWeight: '900',
+    color: 'green',
+  },
+  proimg: {
+    width: 100,
+    height: 100,
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    alignSelf: 'center',
+  },
+  scrContainer: {
+    marginTop: 10,
+    flex: 1,
+    backgroundColor: 'white',
+    width: width - 10,
   },
 });
 
